@@ -401,7 +401,7 @@ const FLOWS = {
     title:"No reply / no one home",
     desc:"Pick what’s happening on site.",
     options:[
-      { label:"Not answering but may be nearby", desc:"Call/text, wait based on AM/PM, reopen and reattend later. If customer confirms, must reattend.", next:"nr_near_1", tag:"Customer" },
+      { label:"Not answering", desc:"Call/text, wait based on AM/PM, reopen and reattend later. If customer confirms, must reattend.", next:"nr_near_1", tag:"Customer" },
       { label:"Customer unreachable / wrong contact", desc:"Call/text/voicemail. If number incorrect: FM to source alt contact (email).", next:"nr_unreach_1", tag:"Customer" },
     ]
   },
@@ -419,7 +419,7 @@ const FLOWS = {
   nr_unreach_1:{ type:"info", title:"Attempt contact", desc:"Call, text, and leave voicemail (where available).", next:"nr_unreach_2", chip:"No contact", chipKind:"blue" },
   nr_unreach_2:{ type:"question", title:"Is the contact number incorrect/invalid?", desc:"If incorrect, escalate to FM to source alternative contact details.", yes:"nr_unreach_3", no:"nr_unreach_fail" },
   nr_unreach_3:{ type:"result", title:"Escalate to FM for alternative contact", desc:"FM may find alternative contact details and potentially email the customer. If contact established: proceed with install.", next:"done" },
-  nr_unreach_fail:{ type:"result", title:"Hard stop – fail correctly", desc:"Close as No reply / no one home – customer unreachable.", next:"done" },
+  nr_unreach_fail:{ type:"result", title:"Close as NBI", desc:"Reopen job, place as last job and attempt to complete at the end of the day", next:"done" },
 
   // -------- Coax drop/repull (detailed) --------
   coax_start:{
