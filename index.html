@@ -342,7 +342,7 @@ const FLOWS = {
       { label: "No reply / no one home", desc: "No answer at door, unreachable, late response, reattendance.", next: "nr_menu", tag: "Customer" },
       { label: "Drop / repull required (coax)", desc: "Damaged drop, low levels/SNR. Local repair → escalate → dry install.", next: "coax_start", tag: "Network" },
       { label: "Drop / repull required (fibre – Fibre Up)", desc: "Light meter, port light checks, scope/clean, preblow escalation.", next: "fu_start", tag: "Fibre" },
-      { label: "Drop / repull required (fibre – other builds)", desc: "Similar to Fibre Up, qualification gate, internal tech support.", next: "fo_start", tag: "Fibre" },
+      { label: "Drop / repull required (fibre – OH/UG)", desc: "Qualification gate, internal tech support.", next: "fo_start", tag: "Fibre" },
       { label: "Cable route not agreed", desc: "Find acceptable alternative, escalate to FM/senior if needed.", next: "route_start", tag: "Customer" },
       { label: "No access to pit / cab", desc: "Find owner, polite note, reattempt later.", next: "pit_start", tag: "Access" },
       { label: "Order entry error", desc: "Sales/order issues. Customer services / sales rep / TiVo Nigel / CONS 360.", next: "order_start", tag: "Order" },
