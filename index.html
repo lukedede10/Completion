@@ -344,11 +344,11 @@ const FLOWS = {
       { label: "Drop / repull required (fibre – Fibre Up)", desc: "Light meter, port light checks, scope/clean, preblow escalation.", next: "fu_start", tag: "Fibre" },
       { label: "Drop / repull required (fibre – other builds)", desc: "Similar to Fibre Up, qualification gate, internal tech support.", next: "fo_start", tag: "Fibre" },
       { label: "Cable route not agreed", desc: "Find acceptable alternative, escalate to FM/senior if needed.", next: "route_start", tag: "Customer" },
-      { label: "No access to pit / cab", desc: "Find owner, polite note, reattempt later, then fail correctly.", next: "pit_start", tag: "Access" },
+      { label: "No access to pit / cab", desc: "Find owner, polite note, reattempt later.", next: "pit_start", tag: "Access" },
       { label: "Order entry error", desc: "Sales/order issues. Customer services / sales rep / TiVo Nigel / CONS 360.", next: "order_start", tag: "Order" },
-      { label: "Customer requested reschedule", desc: "Accommodate, reattend later, adult access, then close correctly.", next: "resched_start", tag: "Customer" },
-      { label: "Customer requested cancellation", desc: "Understand reason, resolve/escalate, then close correctly.", next: "cancel_start", tag: "Customer" },
-      { label: "Non serviceable address (incl. capacity)", desc: "Badger neighbour precedent, FM GCOMS, senior engineer attendance.", next: "nsa_start", tag: "Network" },
+      { label: "Customer requested reschedule", desc: "Accommodate, reattend later.", next: "resched_start", tag: "Customer" },
+      { label: "Customer requested cancellation", desc: "Understand reason, resolve/escalate.", next: "cancel_start", tag: "Customer" },
+      { label: "Non serviceable address (incl. capacity)", desc: "Badger, FM GCOMS, senior engineer attendance if required.", next: "nsa_start", tag: "Network" },
     ]
   },
 
