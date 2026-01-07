@@ -339,8 +339,8 @@ const FLOWS = {
     desc: "Pick the issue you’re dealing with. Then swipe: Right = Yes, Left = No.",
     options: [
       { label: "Change of circumstances", desc: "Customer/property not ready, unsure, access via landlord, appointment moved earlier.", next: "coc_menu", tag: "Customer" },
-      { label: "No reply / no one home", desc: "No answer at door, unreachable, late response, reattendance logic.", next: "nr_menu", tag: "Customer" },
-      { label: "Drop / repull required (coax)", desc: "Damaged drop, low levels/SNR. Local repair → escalate → dry install logic.", next: "coax_start", tag: "Network" },
+      { label: "No reply / no one home", desc: "No answer at door, unreachable, late response, reattendance.", next: "nr_menu", tag: "Customer" },
+      { label: "Drop / repull required (coax)", desc: "Damaged drop, low levels/SNR. Local repair → escalate → dry install.", next: "coax_start", tag: "Network" },
       { label: "Drop / repull required (fibre – Fibre Up)", desc: "Light meter, port light checks, scope/clean, preblow escalation.", next: "fu_start", tag: "Fibre" },
       { label: "Drop / repull required (fibre – other builds)", desc: "Similar to Fibre Up, qualification gate, internal tech support.", next: "fo_start", tag: "Fibre" },
       { label: "Cable route not agreed", desc: "Find acceptable alternative, escalate to FM/senior if needed.", next: "route_start", tag: "Customer" },
@@ -406,7 +406,7 @@ const FLOWS = {
     ]
   },
 
-  // Not answering but may be nearby
+  // Not answering
   nr_near_1:{ type:"info", title:"Attempt contact", desc:"Call and text ALL available numbers. If customer responds, proceed when available.", next:"nr_near_2", chip:"No one home", chipKind:"blue" },
   nr_near_2:{ type:"question", title:"Is this an AM appointment?", desc:"Guidance: AM – wait ~5 mins then move on. PM – wait ~15 mins.", yes:"nr_near_am", no:"nr_near_pm" },
   nr_near_am:{ type:"info", title:"AM guidance", desc:"Wait ~5 minutes. If no answer, move on and plan reattendance later.", next:"nr_near_3" },
@@ -430,7 +430,7 @@ const FLOWS = {
     chip:"Coax", chipKind:"blue"
   },
 
-  // Based on your detailed coax sequence
+  // Based on coax sequence
   coax_damage_1:{ type:"question", title:"Is there visible damage on the drop?", desc:"If yes, cut at damage point and test from there.", yes:"coax_damage_2", no:"coax_levels_1" },
   coax_damage_2:{ type:"info", title:"Cut at damage point and test", desc:"Cut at the point of damage, then test levels at that point.", next:"coax_damage_3" },
   coax_damage_3:{ type:"question", title:"Are levels OK at this point?", desc:"If yes: splice + new length + bury/reinstate.", yes:"coax_damage_splice", no:"coax_boundary_1" },
@@ -470,11 +470,11 @@ const FLOWS = {
   fu_dry:{ type:"result", title:"Dry install + book TLOS", desc:"No construction issues. Complete dry install, book TLOS, close install as complete.", next:"done" },
   fu_cons:{ type:"result", title:"Hard stop – construction required", desc:"Do NOT complete dry install. Book TLOS with construction and close install as not done.", next:"done" },
 
-  // -------- Fibre other builds --------
+  // -------- Fibre UG/OH --------
   fo_start:{
     type:"info",
-    title:"Fibre – other build types",
-    desc:"Similar to Fibre Up, but: port access depends on qualifications. Remediation is via VMO2 technicians (not contractors).",
+    title:"Fibre – UG/OHs",
+    desc:"Port access depends on qualifications. Remediation is via VMO2 technicians (not contractors).",
     next:"fo_1",
     chip:"Fibre (other)", chipKind:"blue"
   },
