@@ -284,7 +284,7 @@
       nr_unreach_3:{ type:"result", title:"Escalate to FM for alternative contact", desc:"FM may find alternative contact details and potentially email the customer. If contact established: proceed with install.", next:"done" },
       nr_unreach_fail:{ type:"result", title:"Stop – fail correctly", desc:"Close as No reply / no one home – customer unreachable.", next:"done" },
 
-      coax_start:{ type:"info", title:"Coax – damaged drop / low levels / low SNR", desc:"This flow is for damaged drop or low levels/SNR. Attempt repair first, then escalation, then dry install rule.", next:"coax_damage_1", chip:"Coax", chipKind:"blue" },
+      coax_start:{ type:"info", title:"Coax – damaged drop / low levels / low SNR", desc:"This flow is for damaged drop or low levels/SNR. Attempt repair first, then escalation, then dry install.", next:"coax_damage_1", chip:"Coax", chipKind:"blue" },
       coax_damage_1:{ type:"question", title:"Is there visible damage on the drop?", desc:"If yes, cut at damage point and test from there.", yes:"coax_damage_2", no:"coax_levels_1" },
       coax_damage_2:{ type:"info", title:"Cut at damage point and test", desc:"Cut at the point of damage, then test levels at that point.", next:"coax_damage_3" },
       coax_damage_3:{ type:"question", title:"Are levels OK at this point?", desc:"If yes: splice + new length + bury/reinstate.", yes:"coax_damage_splice", no:"coax_boundary_1" },
@@ -301,7 +301,7 @@
       coax_dry_no:{ type:"result", title:"Stop – construction required", desc:"Do NOT complete dry install. Close as not done and inform customer. Repull requires construction.", next:"done" },
       coax_levels_1:{ type:"result", title:"Low levels / low SNR", desc:"Follow the same cut/test escalation route above where applicable. If levels cannot be brought within spec, job should not complete.", next:"done" },
 
-      fu_start:{ type:"info", title:"Fibre – Fibre Up", desc:"No temporary fibre connections. Focus: light meter → port light/new port → scope/clean → FM preblow → dry install rule.", next:"fu_1", chip:"Fibre Up", chipKind:"blue" },
+      fu_start:{ type:"info", title:"Fibre – Fibre Up", desc:"No temporary fibre connections. Light meter → port light/new port → scope/clean → FM preblow → dry install.", next:"fu_1", chip:"Fibre Up", chipKind:"blue" },
       fu_1:{ type:"info", title:"Check light levels (light meter)", desc:"If levels are within spec, continue with install.", next:"fu_2" },
       fu_2:{ type:"question", title:"Are light levels within spec?", desc:"If not within spec, check port in cabinet for light.", yes:"fu_saved", no:"fu_3" },
       fu_saved:{ type:"result", title:"Continue with install", desc:"Levels within spec. Proceed with install.", next:"done" },
@@ -309,7 +309,7 @@
       fu_4:{ type:"question", title:"After port check/new port, are levels within spec?", desc:"If still not, scope and clean fibre ends.", yes:"fu_saved", no:"fu_5" },
       fu_5:{ type:"info", title:"Scope & clean fibre ends", desc:"Scope ends and ensure they are clean. Re-test light levels.", next:"fu_6" },
       fu_6:{ type:"question", title:"After scope/clean, are levels within spec?", desc:"If not, contact FM to arrange preblow same day.", yes:"fu_saved", no:"fu_7" },
-      fu_7:{ type:"question", title:"Can FM arrange preblow today?", desc:"If yes, re-test after preworks and proceed. If no: check construction issues for dry install rule.", yes:"fu_preblow", no:"fu_8" },
+      fu_7:{ type:"question", title:"Can FM arrange preblow today?", desc:"If yes, re-test after preworks and proceed. If no: check construction issues for dry install.", yes:"fu_preblow", no:"fu_8" },
       fu_preblow:{ type:"result", title:"Preblow today → re-test → proceed", desc:"Preblow completed today. Re-test levels. If within spec, proceed with install.", next:"done" },
       fu_8:{ type:"question", title:"Are there construction issues?", desc:"If NO construction issues: dry install + book TLOS. If construction issues: do NOT dry install.", yes:"fu_cons", no:"fu_dry" },
       fu_dry:{ type:"result", title:"Dry install + book TLOS", desc:"No construction issues. Complete dry install, book TLOS, close install as complete.", next:"done" },
